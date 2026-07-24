@@ -1,36 +1,179 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# The Music Journal
+
+A personal music journal and vinyl collection app where users can track their records, discover album details, and document their listening experiences.
+
+The goal of The Music Journal is to combine a record collection, album database, and listening diary into one place, helping music lovers keep track of what they own, what they want, and how each album made them feel.
+
+The app combines data from Discogs and Last.fm:
+
+- Discogs provides accurate music metadata, releases, labels, credits, and collection data.
+- Last.fm provides listening insights, similar artists, tags, trends, and user statistics.
+
+## Features
+
+### Collection
+
+Manage your personal record collection with detailed information about each release.
+
+- Add albums from Discogs
+- Collection status:
+  - Owned
+  - Want to buy
+  - Ordered
+  - Sold
+
+- Personal rating
+- Personal notes
+- Purchase price
+- Market value (when available through Discogs)
+- Wishlist management
+
+### Album Information
+
+Explore detailed album information.
+
+- Album information
+- Tracklist
+- Credits
+- Artists
+- Genres
+- Labels
+- Release date
+- Favorite albums
+- Similar artists
+- Last.fm tags and trends
+
+### Journal
+
+Keep a personal listening diary.
+
+- Log listening sessions
+- Write short reviews
+- Add mood
+- Give ratings
+- Comment on albums
+- Like reviews
+
+### Social Features
+
+Build connections around music.
+
+Users can:
+
+- Follow other users
+- View collections
+- Like reviews
+- Comment on journal entries
+- Share discoveries
+
+### Search & Discovery
+
+Music discovery feature where users can search for their next favourite songs and artists.
+
+Features:
+
+- Debounced search
+- URL-based search parameters
+- Pagination
+- Infinite scrolling
+- Artist recommendations
+- Similar albums
+
+### Database Model
+
+Core entities:
+
+- User
+- Collection
+- Album
+- Artist
+- Review
+- Comment
+- Like
+- Wishlist
+- Following
+
+## Vision
+
+Music is more than just sound. Albums are connected to memories, places, emotions, and moments.
+
+The Music Journal aims to make those connections easier to capture by combining collection management with personal reflection.
+
+## Tech Stack
+
+### Frontend
+
+- Next.js 16
+- React 19
+- TypeScript
+- Tailwind CSS
+- shadcn/ui
+
+### Backend & Data
+
+- Prisma
+- PostgreSQL
+- Supabase
+- Server Actions
+- Server Components
+
+### Forms & Validation
+
+- React Hook Form
+- Zod
+
+### Client Data Management
+
+- TanStack Query
+
+### Authentication
+
+- Auth.js
+
+### Development & Deployment
+
+- Docker
+- Vercel
 
 ## Getting Started
 
-First, run the development server:
+Clone the repository:
+
+```bash
+git clone <repository-url>
+cd themusicjournal
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Future Ideas
 
-## Learn More
+Possible future improvements:
 
-To learn more about Next.js, take a look at the following resources:
+- User profiles
+- Social sharing
+- Listening statistics
+- Collection analytics
+- Recommendations based on listening history
+- Import/export collections
+- Mobile app support
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is currently for personal use and development.
