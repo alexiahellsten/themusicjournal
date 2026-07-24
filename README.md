@@ -140,7 +140,7 @@ The Music Journal aims to make those connections easier to capture by combining 
 Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/alexiahellsten/themusicjournal
 cd themusicjournal
 ```
 
