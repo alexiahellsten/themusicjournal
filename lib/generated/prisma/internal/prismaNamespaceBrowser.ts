@@ -59,7 +59,11 @@ export const ModelName = {
   Review: 'Review',
   Comment: 'Comment',
   Like: 'Like',
-  Follow: 'Follow'
+  Follow: 'Follow',
+  Track: 'Track',
+  Label: 'Label',
+  Genre: 'Genre',
+  Style: 'Style'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -181,6 +185,46 @@ export const FollowScalarFieldEnum = {
 } as const
 
 export type FollowScalarFieldEnum = (typeof FollowScalarFieldEnum)[keyof typeof FollowScalarFieldEnum]
+
+
+export const TrackScalarFieldEnum = {
+  id: 'id',
+  position: 'position',
+  title: 'title',
+  duration: 'duration',
+  albumId: 'albumId',
+  createdAt: 'createdAt'
+} as const
+
+export type TrackScalarFieldEnum = (typeof TrackScalarFieldEnum)[keyof typeof TrackScalarFieldEnum]
+
+
+export const LabelScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  discogsId: 'discogsId',
+  createdAt: 'createdAt'
+} as const
+
+export type LabelScalarFieldEnum = (typeof LabelScalarFieldEnum)[keyof typeof LabelScalarFieldEnum]
+
+
+export const GenreScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  createdAt: 'createdAt'
+} as const
+
+export type GenreScalarFieldEnum = (typeof GenreScalarFieldEnum)[keyof typeof GenreScalarFieldEnum]
+
+
+export const StyleScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  createdAt: 'createdAt'
+} as const
+
+export type StyleScalarFieldEnum = (typeof StyleScalarFieldEnum)[keyof typeof StyleScalarFieldEnum]
 
 
 export const SortOrder = {

@@ -86,3 +86,23 @@ export type Like = Prisma.LikeModel
  * 
  */
 export type Follow = Prisma.FollowModel
+/**
+ * Model Track
+ * 
+ */
+export type Track = Prisma.TrackModel
+/**
+ * Model Label
+ * 
+ */
+export type Label = Prisma.LabelModel
+/**
+ * Model Genre
+ * 
+ */
+export type Genre = Prisma.GenreModel
+/**
+ * Model Style
+ * 
+ */
+export type Style = Prisma.StyleModel
