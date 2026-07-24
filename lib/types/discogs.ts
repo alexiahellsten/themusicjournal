@@ -52,3 +52,38 @@ export interface DiscogsRelease {
 
   uri?: string;
 }
+
+export interface DiscogsSearchResponse {
+  pagination: {
+    page: number;
+    pages: number;
+    per_page: number;
+    items: number;
+  };
+
+  results: DiscogsSearchResult[];
+}
+
+export interface DiscogsSearchResult {
+  id: number;
+
+  title: string;
+
+  year?: number;
+
+  type: string;
+
+  cover_image: string;
+
+  thumb: string;
+
+  genre?: string[];
+
+  style?: string[];
+
+  label?: string[];
+
+  country?: string;
+
+  resource_url: string;
+}
