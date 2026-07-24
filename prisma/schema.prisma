@@ -1,0 +1,127 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id         String       @id @default(cuid())
+  email      String       @unique
+  username   String       @unique
+  avatarUrl  String?
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+  collection Collection[]
+  comments   Comment[]
+  following  Follow[]     @relation("following")
+  followers  Follow[]     @relation("followers")
+  likes      Like[]
+  reviews    Review[]
+  wishlist   Wishlist[]
+}
+
+model Album {
+  id          String       @id @default(cuid())
+  title       String
+  releaseDate DateTime?
+  coverImage  String?
+  discogsId   Int?         @unique
+  lastfmId    String?
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  collection  Collection[]
+  reviews     Review[]
+  wishlist    Wishlist[]
+  artists     Artist[]     @relation("AlbumToArtist")
+}
+
+model Artist {
+  id        String  @id @default(cuid())
+  name      String
+  discogsId Int?    @unique
+  lastfmId  String?
+  albums    Album[] @relation("AlbumToArtist")
+}
+
+model Collection {
+  id            String           @id @default(cuid())
+  status        CollectionStatus
+  rating        Int?
+  notes         String?
+  purchasePrice Float?
+  marketValue   Float?
+  userId        String
+  albumId       String
+  createdAt     DateTime         @default(now())
+  album         Album            @relation(fields: [albumId], references: [id])
+  user          User             @relation(fields: [userId], references: [id])
+
+  @@unique([userId, albumId])
+}
+
+model Wishlist {
+  id        String   @id @default(cuid())
+  userId    String
+  albumId   String
+  createdAt DateTime @default(now())
+  album     Album    @relation(fields: [albumId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
+
+  @@unique([userId, albumId])
+}
+
+model Review {
+  id        String    @id @default(cuid())
+  text      String
+  rating    Int?
+  mood      String?
+  userId    String
+  albumId   String
+  createdAt DateTime  @default(now())
+  comments  Comment[]
+  likes     Like[]
+  album     Album     @relation(fields: [albumId], references: [id])
+  user      User      @relation(fields: [userId], references: [id])
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  text      String
+  userId    String
+  reviewId  String
+  createdAt DateTime @default(now())
+  review    Review   @relation(fields: [reviewId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model Like {
+  id        String   @id @default(cuid())
+  userId    String
+  reviewId  String
+  createdAt DateTime @default(now())
+  review    Review   @relation(fields: [reviewId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
+
+  @@unique([userId, reviewId])
+}
+
+model Follow {
+  id          String   @id @default(cuid())
+  followerId  String
+  followingId String
+  createdAt   DateTime @default(now())
+  follower    User     @relation("following", fields: [followerId], references: [id])
+  following   User     @relation("followers", fields: [followingId], references: [id])
+
+  @@unique([followerId, followingId])
+}
+
+enum CollectionStatus {
+  OWNED
+  WANT_TO_BUY
+  ORDERED
+  SOLD
+}
