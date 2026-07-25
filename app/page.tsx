@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export default function Home() {
@@ -8,9 +9,11 @@ export default function Home() {
           <h1 className='font-heading text-6xl font-bold'>The Music Journal</h1>
         </div>
         <div className='my-8 flex flex-col items-center justify-center gap-4'>
-          <Button className='bg-primary text-l text-primary-foreground hover:bg-primary/90'>
-            Sign in to your account
-          </Button>
+          <Link href='/login'>
+            <Button className='bg-primary text-l text-primary-foreground hover:bg-primary/90'>
+              Sign in
+            </Button>
+          </Link>
         </div>
       </main>
     </div>
